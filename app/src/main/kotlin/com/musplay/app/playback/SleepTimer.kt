@@ -23,17 +23,26 @@ class SleepTimer(
         private set
     var pauseWhenSongEnd by mutableStateOf(false)
         private set
+    // MusPlay: end-of-queue — pause only when queue is exhausted, not mid-queue crossfade.
+    var pauseWhenQueueEnd by mutableStateOf(false)
+        private set
     val isActive: Boolean
-        get() = triggerTime != -1L || pauseWhenSongEnd
+        get() = triggerTime != -1L || pauseWhenSongEnd || pauseWhenQueueEnd
 
     fun start(minute: Int) {
         sleepTimerJob?.cancel()
         sleepTimerJob = null
         if (minute == -1) {
             pauseWhenSongEnd = true
+            pauseWhenQueueEnd = false
+            triggerTime = -1L
+        } else if (minute == -2) {
+            pauseWhenQueueEnd = true
+            pauseWhenSongEnd = false
             triggerTime = -1L
         } else {
             pauseWhenSongEnd = false
+            pauseWhenQueueEnd = false
             triggerTime = System.currentTimeMillis() + minute.minutes.inWholeMilliseconds
             sleepTimerJob =
                 scope.launch {
@@ -51,10 +60,19 @@ class SleepTimer(
         }
     }
 
+    /** Called when queue becomes empty and playback ends — MusPlay specific. */
+    fun notifyQueueEnd() {
+        if (pauseWhenQueueEnd) {
+            pauseWhenQueueEnd = false
+            player.pause()
+        }
+    }
+
     fun clear() {
         sleepTimerJob?.cancel()
         sleepTimerJob = null
         pauseWhenSongEnd = false
+        pauseWhenQueueEnd = false
         triggerTime = -1L
     }
 
@@ -66,6 +84,7 @@ class SleepTimer(
             pauseWhenSongEnd = false
             player.pause()
         }
+        // pauseWhenQueueEnd intentionally NOT handled here — wait for queue exhaustion
     }
 
     override fun onPlaybackStateChanged(
@@ -74,6 +93,14 @@ class SleepTimer(
         if (playbackState == Player.STATE_ENDED && pauseWhenSongEnd) {
             pauseWhenSongEnd = false
             player.pause()
+        }
+        if (playbackState == Player.STATE_ENDED && pauseWhenQueueEnd) {
+            // Only pause if there is no next window to play (queue exhausted).
+            val hasNext = player.hasNextMediaItem()
+            if (!hasNext) {
+                pauseWhenQueueEnd = false
+                player.pause()
+            }
         }
     }
 }

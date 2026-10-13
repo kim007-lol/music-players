@@ -208,7 +208,8 @@ fun PlayerMenu(
     var sleepTimerValue by remember { mutableFloatStateOf(30f) }
     val sleepTimerEnabled = remember(
         playerConnection.service.sleepTimer.triggerTime,
-        playerConnection.service.sleepTimer.pauseWhenSongEnd
+        playerConnection.service.sleepTimer.pauseWhenSongEnd,
+        playerConnection.service.sleepTimer.pauseWhenQueueEnd
     ) {
         playerConnection.service.sleepTimer.isActive
     }
@@ -262,13 +263,23 @@ fun PlayerMenu(
 
                     Spacer(Modifier.height(8.dp))
 
-                    OutlinedButton(
-                        onClick = {
-                            showSleepTimerDialog = false
-                            playerConnection.service.sleepTimer.start(-1)
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        OutlinedButton(
+                            onClick = {
+                                showSleepTimerDialog = false
+                                playerConnection.service.sleepTimer.start(-1)
+                            }
+                        ) {
+                            Text(stringResource(R.string.end_of_song))
                         }
-                    ) {
-                        Text(stringResource(R.string.end_of_song))
+                        OutlinedButton(
+                            onClick = {
+                                showSleepTimerDialog = false
+                                playerConnection.service.sleepTimer.start(-2)
+                            }
+                        ) {
+                            Text(stringResource(R.string.end_of_queue))
+                        }
                     }
                 }
             }

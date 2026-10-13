@@ -135,14 +135,14 @@ if [ "$SKIP_BUILD" = false ]; then
 
     if [ -n "$CHANGE_VERSION" ]; then
         echo "Changing base app version to $CHANGE_VERSION..."
-        sed -i '' "s/versionName = \".*\"/versionName = \"$CHANGE_VERSION\"/g" app/build.gradle.kts
+        sed -i "s/versionName = \".*\"/versionName = \"$CHANGE_VERSION\"/g" app/build.gradle.kts
     fi
 
     # read base version
     BASE_VERSION=$(grep 'versionName =' app/build.gradle.kts | head -n 1 | sed 's/.*versionName = "\(.*\)".*/\1/' | sed 's/ build#.*//')
 
     # update version name
-    sed -i '' "s/versionName = \".*\"/versionName = \"$BASE_VERSION build#$BUILD_ATTEMPT\"/g" app/build.gradle.kts
+    sed -i "s/versionName = \".*\"/versionName = \"$BASE_VERSION build#$BUILD_ATTEMPT\"/g" app/build.gradle.kts
 
     # update beta notice
     if [ -f "$BETA_NOTICE_FILE" ]; then
@@ -150,10 +150,10 @@ if [ "$SKIP_BUILD" = false ]; then
         if [ -n "$CUSTOM_DATE" ]; then
             NOTICE_TITLE="musplay build #$BUILD_ATTEMPT $VARIANT ($CUSTOM_DATE)"
         fi
-        sed -i '' -e "s/text = \"MusicPlaying DEV PREV\"/text = \"$NOTICE_TITLE\"/g" "$BETA_NOTICE_FILE"
-        sed -i '' -e "s/text = \"musplay build #[0-9]* .*\"/text = \"$NOTICE_TITLE\"/g" "$BETA_NOTICE_FILE"
-        sed -i '' -e "s/text = \"[0-9]*\.[0-9]*\.[0-9]*DEV\"/text = \"$BASE_VERSION build#$BUILD_ATTEMPT\"/g" "$BETA_NOTICE_FILE"
-        sed -i '' -e "s/text = \"[0-9]*\.[0-9]*\.[0-9]* build#[0-9]*\"/text = \"$BASE_VERSION build#$BUILD_ATTEMPT\"/g" "$BETA_NOTICE_FILE"
+        sed -i -e "s/text = \"MusicPlaying DEV PREV\"/text = \"$NOTICE_TITLE\"/g" "$BETA_NOTICE_FILE"
+        sed -i -e "s/text = \"musplay build #[0-9]* .*\"/text = \"$NOTICE_TITLE\"/g" "$BETA_NOTICE_FILE"
+        sed -i -e "s/text = \"[0-9]*\.[0-9]*\.[0-9]*DEV\"/text = \"$BASE_VERSION build#$BUILD_ATTEMPT\"/g" "$BETA_NOTICE_FILE"
+        sed -i -e "s/text = \"[0-9]*\.[0-9]*\.[0-9]* build#[0-9]*\"/text = \"$BASE_VERSION build#$BUILD_ATTEMPT\"/g" "$BETA_NOTICE_FILE"
     fi
 
     # select gradle task
