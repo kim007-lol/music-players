@@ -1,0 +1,7 @@
+Updated to v3.0.6
+
+    Added monochrome app icon
+
+    Updated MusicPlaying Updater (only for musicplaying.apk builds)
+
+    Improved performance and stability
