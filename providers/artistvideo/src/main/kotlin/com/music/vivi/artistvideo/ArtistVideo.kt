@@ -1,6 +1,6 @@
 // ArtistVideo.kt
 
-package com.example.musicplaying.artistvideo
+package com.musplay.app.artistvideo
 
 import android.view.TextureView
 import android.view.ViewGroup

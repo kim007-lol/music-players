@@ -1,6 +1,6 @@
 // Track.kt
 
-package com.example.musicplaying.betterlyrics.models
+package com.musplay.app.betterlyrics.models
 
 import kotlinx.serialization.Serializable
 

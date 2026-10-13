@@ -1,6 +1,6 @@
 // MonochromeApiCanvasTest.kt
 
-package com.example.musicplaying.canvas
+package com.musplay.app.canvas
 
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals

@@ -1,8 +1,8 @@
 // BetterLyrics.kt
 
-package com.example.musicplaying.betterlyrics
+package com.musplay.app.betterlyrics
 
-import com.example.musicplaying.betterlyrics.models.TTMLResponse
+import com.musplay.app.betterlyrics.models.TTMLResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO

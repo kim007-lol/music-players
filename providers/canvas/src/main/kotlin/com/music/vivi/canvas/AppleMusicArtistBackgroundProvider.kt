@@ -1,6 +1,6 @@
 // AppleMusicArtistBackgroundProvider.kt
 
-package com.example.musicplaying.canvas
+package com.musplay.app.canvas
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body

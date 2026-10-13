@@ -1,6 +1,6 @@
 // ArtistVideoCanvasProvider.kt
 
-package com.example.musicplaying.artistvideo
+package com.musplay.app.artistvideo
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body

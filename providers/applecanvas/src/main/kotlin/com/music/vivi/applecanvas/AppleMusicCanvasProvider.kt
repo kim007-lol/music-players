@@ -1,8 +1,8 @@
 // AppleMusicCanvasProvider.kt
 
-package com.example.musicplaying.applecanvas
+package com.musplay.app.applecanvas
 
-import com.example.musicplaying.canvas.CanvasArtwork
+import com.musplay.app.canvas.CanvasArtwork
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.okhttp.OkHttp

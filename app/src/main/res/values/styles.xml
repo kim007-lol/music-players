@@ -3,10 +3,10 @@
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@android:color/black</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_mark</item>
-        <item name="postSplashScreenTheme">@style/Theme.musicplaying</item>
+        <item name="postSplashScreenTheme">@style/Theme.MusPlay</item>
     </style>
 
-    <style name="Theme.musicplaying" parent="android:Theme.Material.NoActionBar">
+    <style name="Theme.MusPlay" parent="android:Theme.Material.NoActionBar">
         <item name="android:fontFamily">@font/inter</item>
         <item name="fontFamily">@font/inter</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -21,7 +21,7 @@
     </style>
 
     <!-- Widget Theme with Material 3 colors fallback for API < 31 -->
-    <style name="Theme.Widget.musicplaying" parent="@android:style/Theme.DeviceDefault">
+    <style name="Theme.Widget.MusPlay" parent="@android:style/Theme.DeviceDefault">
         <item name="android:fontFamily">@font/inter</item>
         <item name="fontFamily">@font/inter</item>
         <item name="android:colorBackground">#E6E1E5</item>

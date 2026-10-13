@@ -1,0 +1,6 @@
+# Copy to local.properties (not committed) and fill your keys.
+# local.properties is gitignored — never commit real keys.
+
+# Get keys from https://www.last.fm/api/account/create
+LASTFM_API_KEY=
+LASTFM_SECRET=

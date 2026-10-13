@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.musicplaying.artistvideo"
+    namespace = "com.musplay.app.artistvideo"
     compileSdk = 36
 
     defaultConfig {

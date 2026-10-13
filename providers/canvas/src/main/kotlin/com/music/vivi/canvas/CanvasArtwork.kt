@@ -1,6 +1,6 @@
 // CanvasArtwork.kt
 
-package com.example.musicplaying.canvas
+package com.musplay.app.canvas
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

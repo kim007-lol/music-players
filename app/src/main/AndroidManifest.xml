@@ -36,7 +36,7 @@
         </intent>
         <!-- source modules installed as their own app (modules/SourceModules.kt) -->
         <intent>
-            <action android:name="com.example.musicplaying.SOURCE_MODULE" />
+            <action android:name="com.musplay.app.SOURCE_MODULE" />
         </intent>
     </queries>
     <application
@@ -52,7 +52,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
-        android:theme="@style/Theme.musicplaying"
+        android:theme="@style/Theme.MusPlay"
         tools:targetApi="tiramisu">
         <uses-library
             android:name="org.apache.http.legacy"
@@ -62,7 +62,7 @@
             android:name=".ui.screens.CrashActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.musicplaying"
+            android:theme="@style/Theme.MusPlay"
             android:excludeFromRecents="true"
             android:process=":crash" />
 
@@ -254,9 +254,9 @@
             android:label="@string/widget_music_player">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.example.musicplaying.widget.PLAY_PAUSE" />
-                <action android:name="com.example.musicplaying.widget.LIKE" />
-                <action android:name="com.example.musicplaying.widget.UPDATE_WIDGET" />
+                <action android:name="com.musplay.app.widget.PLAY_PAUSE" />
+                <action android:name="com.musplay.app.widget.LIKE" />
+                <action android:name="com.musplay.app.widget.UPDATE_WIDGET" />
             </intent-filter>
 
             <meta-data
@@ -271,9 +271,9 @@
             android:label="@string/widget_turntable">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.example.musicplaying.widget.TURNTABLE_PLAY_PAUSE" />
-                <action android:name="com.example.musicplaying.widget.TURNTABLE_LIKE" />
-                <action android:name="com.example.musicplaying.widget.UPDATE_TURNTABLE_WIDGET" />
+                <action android:name="com.musplay.app.widget.TURNTABLE_PLAY_PAUSE" />
+                <action android:name="com.musplay.app.widget.TURNTABLE_LIKE" />
+                <action android:name="com.musplay.app.widget.UPDATE_TURNTABLE_WIDGET" />
             </intent-filter>
 
             <meta-data
@@ -284,7 +284,7 @@
         <!-- Google Cast Options Provider -->
         <meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-            android:value="com.example.musicplaying.cast.CastOptionsProvider" />
+            android:value="com.musplay.app.cast.CastOptionsProvider" />
     </application>
 
 </manifest>

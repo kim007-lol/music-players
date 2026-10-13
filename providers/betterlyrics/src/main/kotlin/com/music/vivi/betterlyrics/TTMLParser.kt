@@ -1,6 +1,6 @@
 // TTMLParser.kt
 
-package com.example.musicplaying.betterlyrics
+package com.musplay.app.betterlyrics
 
 import org.w3c.dom.Element
 import org.w3c.dom.Node

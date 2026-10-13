@@ -6,20 +6,20 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # WEB_REMIX Streaming - WebView JavaScript interfaces
--keepclassmembers class com.example.musicplaying.utils.sabr.EjsNTransformSolver$SolverWebView {
+-keepclassmembers class com.musplay.app.utils.sabr.EjsNTransformSolver$SolverWebView {
     @android.webkit.JavascriptInterface public *;
 }
--keepclassmembers class com.example.musicplaying.utils.cipher.CipherWebView {
+-keepclassmembers class com.musplay.app.utils.cipher.CipherWebView {
     @android.webkit.JavascriptInterface public *;
 }
--keepclassmembers class com.example.musicplaying.utils.potoken.PoTokenWebView {
+-keepclassmembers class com.musplay.app.utils.potoken.PoTokenWebView {
     @android.webkit.JavascriptInterface public *;
 }
 
 # Keep streaming utility classes
--keep class com.example.musicplaying.utils.cipher.** { *; }
--keep class com.example.musicplaying.utils.sabr.** { *; }
--keep class com.example.musicplaying.utils.potoken.** { *; }
+-keep class com.musplay.app.utils.cipher.** { *; }
+-keep class com.musplay.app.utils.sabr.** { *; }
+-keep class com.musplay.app.utils.potoken.** { *; }
 
 # Keep coroutine continuation for WebView callbacks
 -keepclassmembers class * {
@@ -117,11 +117,11 @@
 
 ## Queue Persistence Rules
 # Keep queue-related classes to prevent serialization issues in release builds
--keep class com.example.musicplaying.models.PersistQueue { *; }
--keep class com.example.musicplaying.models.PersistPlayerState { *; }
--keep class com.example.musicplaying.models.QueueData { *; }
--keep class com.example.musicplaying.models.QueueType { *; }
--keep class com.example.musicplaying.playback.queues.** { *; }
+-keep class com.musplay.app.models.PersistQueue { *; }
+-keep class com.musplay.app.models.PersistPlayerState { *; }
+-keep class com.musplay.app.models.QueueData { *; }
+-keep class com.musplay.app.models.QueueType { *; }
+-keep class com.musplay.app.playback.queues.** { *; }
 
 # Keep serialization methods for queue persistence
 -keepclassmembers class * implements java.io.Serializable {
@@ -135,7 +135,7 @@
 -keep interface com.yalantis.ucrop** { *; }
 
 ## Google Cast Rules
--keep class com.example.musicplaying.cast.** { *; }
+-keep class com.musplay.app.cast.** { *; }
 -keep class com.google.android.gms.cast.** { *; }
 -keep class androidx.mediarouter.** { *; }
 
@@ -143,8 +143,8 @@
 -dontwarn com.google.re2j.**
 
 # Vibra fingerprint library
--keep class com.example.musicplaying.recognition.VibraSignature { *; }
--keepclassmembers class com.example.musicplaying.recognition.VibraSignature {
+-keep class com.musplay.app.recognition.VibraSignature { *; }
+-keepclassmembers class com.musplay.app.recognition.VibraSignature {
     native <methods>;
 }
 
