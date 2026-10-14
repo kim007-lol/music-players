@@ -51,6 +51,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.graphics.drawable.toBitmap
 import com.musplay.app.BuildConfig
 import com.musplay.app.R
+import com.musplay.app.core.updater.GithubOwner
 import com.musplay.app.core.updater.GithubProfileUrl
 import com.musplay.app.core.updater.GithubRelease
 import com.musplay.app.core.updater.GithubRepoUrl
